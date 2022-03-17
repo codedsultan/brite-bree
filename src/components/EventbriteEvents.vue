@@ -137,7 +137,7 @@ import useFormatDate from "../composables/useFormatDate"
 import useFormatDateTime from "../composables/useFormatDateTime"
 import useFormatAMPM from "../composables/useFormatAMPM"
 export default {
-  // name: 'HelloWorld',
+  name: 'Events',
   props: {
     token:String,
     org: String,
