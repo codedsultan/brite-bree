@@ -10,7 +10,7 @@
         <!-- <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.</p> -->
       </div>
       <div  v-if="events" class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-        <div v-for="(event, key)  in eventsToDisplay " :key='key' class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div v-for="(event, key)  in eventsToDisplay " :key='key' class="flex flex-col  shadow-lg overflow-hidden">
           <div class="flex-shrink-0">
             <img v-if="event.logo == null" class="h-64 w-full object-cover" src="../assets/logo.png" alt="Event Image" />
             <img v-if="event.logo != null" class="h-64 w-full object-cover" :src="event.logo.original.url" alt="" />
