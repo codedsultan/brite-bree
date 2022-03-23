@@ -1,82 +1,109 @@
 <template>
+  <!-- <div class="flex-container grid-container">
+  <div v-if="events.data" class="row" > -->
+       
+              <!-- <ul role="list" class="p-12 -mb-8"> -->
 
- <div class="relative bg-gray-50 px-4 sm:px-6 lg:px-8">
-    <div class="absolute inset-0">
-      <div class="bg-white h-1/3 sm:h-2/3" />
-    </div>
-    <div class="relative  mx-auto">
-      <div class="text-center">
-        <!-- <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Events</h2> -->
-        <!-- <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.</p> -->
-      </div>
-      <div  v-if="events" class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-        <div v-for="(event, key)  in eventsToDisplay " :key='key' class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-          <div class="flex-shrink-0">
-            <img v-if="event.logo == null" class="h-64 w-full object-cover" src="../assets/logo.png" alt="Event Image" />
-            <img v-if="event.logo != null" class="h-64 w-full object-cover" :src="event.logo.original.url" alt="" />
-          </div>
-          <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div class="flex-1">
-              <!-- <p class="text-sm font-medium text-indigo-600">
-                <a href="#" class="hover:underline">
-                  {{ event.name.text }}
-                </a>
-              </p> -->
-              <a href="#" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">
-                  {{ event.name.text }}
-                </p>
-                <div class="flex space-x-1 justify-center text-sm text-gray-500">
-                  <p>
-                  <time :datetime="event.start.utc">
-                    {{ formatDate(event.start.utc) }}
-                  </time>
-                  <span aria-hidden="true"> &middot; </span>
-                  <span> {{ formatAMPM(event.start.utc) }}<span aria-hidden="true"> &middot; </span>({{event.start.timezone}})</span>
-                  </p>
-                </div>
-                <!-- <p class="mt-3 text-base text-gray-500">{{formatDate(event.start.utc)}}</p>
-                <p class="mt-3 text-base text-gray-500">{{formatAMPM(event.start.utc)}}({{event.start.timezone}})</p> -->
+                <!-- <li  v-for="(event, key)  in events.data.events" :key='key'> -->
 
-              </a>
+                  <!-- <div class="card">
+
+                    <img v-if="event.logo != null " :src="event.logo != null ? event.logo.url: ''" alt="Avatar" style="width:100%">
+                    <img v-if="event.logo == null " :src="events.data.events[1].logo.url" alt="Avatar" style="width:100%">
+                    <div class="container">
+                      <h4><b>{{event.name.text}}</b></h4>
+                      <p>Date: {{event.start.utc}}</p>
+                      <p>Timezone: {{event.start.timezone}}</p>
+                      <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button>
+                    </div>
+                  </div> -->
               
-            </div >
-            <div class="mt-6"><button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button></div>
-            <!-- <div class="mt-6 flex items-center">
-              <div class="flex-shrink-0">
-                <a href="#">
-                  <span class="sr-only">{{event.name.text }}</span>
-                  <img  v-if="event.logo != null" class="h-10 w-10 rounded-full" :src="event.logo.original.url" alt="" />
-                </a>
-              </div>
-              <div class="ml-3">
-                <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button>
+              <!-- <div v-if="event.logo != null" class="card" v-bind:style="{ 'background-image': 'url(' + event.logo.url + ')' }">
+                <div class="container">
+                  <h3>{{event.name.text}} </h3> -->
+                  
+                    <!-- <p v-if="event.logo != null">{{event.logo.url}}</p> -->
+                     <!-- <a :href="event.url">View Event</a> -->
+                     <!-- Noscript content for added SEO -->
+<!-- <noscript><a href="https://www.eventbrite.co.uk/e/tedbree-ig-live-tickets-274103560127" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript> -->
+<!-- You can customize this button any way you like -->
+                         <!-- <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button>
+                   </div>
+                  </div> -->
+                <!-- </li> -->
 
-                <p class="text-sm font-medium text-gray-900">
-                  <a href="#" class="hover:underline">
-                    placeholder
-                  </a>
-                </p>
-                <div class="flex space-x-1 text-sm text-gray-500">
-                  <time :datetime="event.start.utc">
-                    {{ formatDate(event.start.utc) }}
-                  </time>
-                  <span aria-hidden="true"> &middot; </span>
-                  <span> {{ formatAMPM(event.start.utc) }}</span>
-                </div>
+            <!-- </ul> -->
+     
+  <!-- <div class="column">    <div class="card" >
+      <div class="container">
+        <h3 >{{events.data.events[eventlength-1].name.text}}
+          {{events.data.events[eventlength-1].logo}}
+        </h3>
+          <button v-on:click="handleCheck(events.data.events[eventlength-1].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-1].id" type="button">Get Tickets</button>
+      </div>
+    </div> </div>
+  <div class="column">    
+    <div class="card">
+      <div class="container">
+        <h3>{{events.data.events[eventlength-2].name.text}}</h3>
+          <button v-on:click="handleCheck(events.data.events[eventlength-2].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-2].id" type="button">Get Tickets</button>
+      </div>
+    </div> </div>
+  <div class="column">    <div class="card">
+      <div class="container">
+        <h3>{{events.data.events[eventlength-3].name.text}}</h3>
+          <button v-on:click="handleCheck(events.data.events[eventlength-3].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-3].id" type="button">Get Tickets</button>
+      </div>
+    </div> </div> -->
+
+      <div v-if="events.data" class="max-w-md mx-auto grid grid-cols-1 gap-y-6 px-4 sm:max-w-7xl sm:px-6 sm:grid-cols-3 sm:gap-y-0 sm:gap-x-6 lg:px-8 lg:gap-x-8">
+        <div v-for="(event, key)  in events.data.events" :key='key' class="group relative h-96 bg-white rounded-lg shadow-xl sm:h-auto sm:aspect-w-4 sm:aspect-h-5">
+          <div>
+            <div aria-hidden="true" class="absolute inset-0 rounded-lg overflow-hidden">
+              <div class="absolute inset-0 overflow-hidden group-hover:opacity-75">
+                <!-- <img :src="collection.imageSrc" :alt="collection.imageAlt" class="w-full h-full object-center object-cover" /> -->
               </div>
-            </div> -->
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50" />
+            </div>
+            <div class="absolute inset-0 rounded-lg p-6 flex items-end">
+              <div>
+                <!-- <p aria-hidden="true" class="text-sm text-white">Shop the collection</p> -->
+                <h3 class="mt-1 font-semibold text-white">
+                  <a :href="event.name.text">
+                    <span class="absolute inset-0" />
+                    {{ event.name.text }}
+                  </a>
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+    
+        <!-- <div class="column"> 
+    <div class="card">
+
+      <img v-if="events.data.events[eventlength-1].logo != null " :src="events.data.events[eventlength-1].logo != null ? events.data.events[eventlength-1].logo.url: ''" alt="Avatar" style="width:100%">
+      <img v-if="events.data.events[eventlength-1].logo == null " :src="events.data.events[1].logo.url" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>{{events.data.events[eventlength-1].name.text}}</b></h4>
+        <p>Date: {{events.data.events[eventlength-1].start.utc}}</p>
+        <p>Timezone: {{events.data.events[eventlength-1].start.timezone}}</p>
+        <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-1].id" type="button">Buy Tickets</button>
+      </div>
     </div>
-  </div>
+    </div> -->
+
+
+<!-- </div>
+</div> -->
 </template>
 
 
 <script>
 import {getEvents, getOrganizations} from './../services/BriteService'
-import {loadExternalScript, o_O} from './../Helpers'
+import {loadExternalScript, o_O, unloadScript} from './../Helpers'
 import useFormatDate from "../composables/useFormatDate"
 import useFormatDateTime from "../composables/useFormatDateTime"
 import useFormatAMPM from "../composables/useFormatAMPM"
@@ -101,7 +128,7 @@ export default {
   },
   data(){
       return{
-          events: [],
+          events: {},
           error: null,
           response: null,
           pt:' 3R6GWLGHDXGP5GM3SN2UK5JQJFHOK4RKMOZXXTIG72NIAOZMTC',
@@ -130,15 +157,14 @@ export default {
     // });
     },
 
-      async handleFetch(x,y){
-        console.log(y)
-        let [err, data] = await o_O(getEvents(x,y));
+      async handleFetch(x){
+        let [err, data] = await o_O(getEvents(x));
               if(err){
                   this.error = err.response.data;
                   this.response = null;
               }else{
-                this.events = data.data.events.reverse()
-                this.eventlength = this.events.length
+                this.events = data
+                this.eventlength = this.events.data.events.length
               }
 
               
@@ -156,27 +182,22 @@ export default {
       },
        
   },
-  computed: {
-    eventsToDisplay: function() {
-      // console.log(this.events.data.events.length-4)
-      if (this.$route.query.view != null ) {
-        return this.events.slice(0, 3);
-      } else {
-        return this.events;
-      }
-    }    
-  },
-    
-    mounted(){      
-      loadExternalScript('https://www.eventbrite.com/static/widgets/eb_widgets.js', 'eventbrite')
-        this.handleFetch(this.$route.params.orgId, this.$route.params.apiKey);
-        this.handleFetchOrgs(this.$route.params.apiKey);
+  computed: {},
 
-    },     
+    mounted(){
+      loadExternalScript('https://www.eventbrite.com/static/widgets/eb_widgets.js', 'eventbrite')
+        this.handleFetch('144370389754');
+        this.handleFetchOrgs('FYE26YJH3ZU4ULOYNERD');
+
+    }, 
+
     
-    // beforeUnmount() {
-    //   unloadScript('https://www.eventbrite.com/static/widgets/eb_widgets.js')
-    // }
+    
+    beforeUnmount() {
+      unloadScript('https://www.eventbrite.com/static/widgets/eb_widgets.js')
+    }
+
+
 }
 </script>
 
@@ -312,9 +333,7 @@ a {
 
 img {
     max-width: 100%;
-    /* height: 200px; */
-    background-color: #42b983;
-    /* max-height: 100%; */
+    max-height: 100%;
 }
 
 button{

@@ -50,6 +50,15 @@ export default function useFormatDateTime() {
         return ( hours + ":" + minutes );
 
     }
+    function getDay(dateString) {
+        let date_ob = new Date(dateString);
 
-    return { formatDateTime, getTime }
+        // adjust 0 before single digit date
+        let date = ("0" + date_ob.getDate()).slice(-2);
+        
+
+        return ( date );
+
+    }
+    return { formatDateTime, getTime ,getDay}
 }

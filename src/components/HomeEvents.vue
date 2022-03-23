@@ -131,7 +131,7 @@ export default {
     },
 
       async handleFetch(x,y){
-        console.log(y)
+        // console.log(y)
         let [err, data] = await o_O(getEvents(x,y));
               if(err){
                   this.error = err.response.data;
@@ -169,9 +169,8 @@ export default {
     
     mounted(){      
       loadExternalScript('https://www.eventbrite.com/static/widgets/eb_widgets.js', 'eventbrite')
-        this.handleFetch(this.$route.params.orgId, this.$route.params.apiKey);
-        this.handleFetchOrgs(this.$route.params.apiKey);
-
+        this.handleFetch('144370389754', 'FYE26YJH3ZU4ULOYNERD');
+        this.handleFetchOrgs('FYE26YJH3ZU4ULOYNERD');
     },     
     
     // beforeUnmount() {
