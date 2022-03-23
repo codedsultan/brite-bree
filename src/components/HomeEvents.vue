@@ -162,7 +162,7 @@ export default {
       if (this.$route.query.view != null ) {
         return this.events.slice(0, 3);
       } else {
-        return this.events;
+        return this.events.slice(0, 3);
       }
     }    
   },
