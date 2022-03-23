@@ -131,7 +131,7 @@ export default {
     },
 
       async handleFetch(x,y){
-        console.log(y)
+        // console.log(y)
         let [err, data] = await o_O(getEvents(x,y));
               if(err){
                   this.error = err.response.data;
