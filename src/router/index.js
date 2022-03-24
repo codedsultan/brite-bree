@@ -17,7 +17,7 @@ const routes = [
   },
 
   {
-    path: '/events/:apiKey/:orgId',
+    path: '/events/:apiKey/:orgId/:primaryColor?/:hexColor?',
     name: 'events',
     component: () => import("../components/EventbriteEvents")
   },

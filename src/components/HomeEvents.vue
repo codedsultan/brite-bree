@@ -1,9 +1,9 @@
 <template>
 
  <div class="relative bg-gray-50 px-4 sm:px-6 lg:px-8">
-    <div class="absolute inset-0">
+    <!-- <div class="absolute inset-0">
       <div class="bg-white h-1/3 sm:h-2/3" />
-    </div>
+    </div> -->
     <div class="relative  mx-auto">
       <div class="text-center">
         <!-- <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Events</h2> -->
