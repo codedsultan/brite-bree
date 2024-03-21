@@ -2,59 +2,7 @@
   <div class="flex-container grid-container">
   <div v-if="events.data" class="row" >
        
-              <!-- <ul role="list" class="p-12 -mb-8"> -->
-
-                <!-- <li  v-for="(event, key)  in events.data.events" :key='key'> -->
-
-                  <!-- <div class="card">
-
-                    <img v-if="event.logo != null " :src="event.logo != null ? event.logo.url: ''" alt="Avatar" style="width:100%">
-                    <img v-if="event.logo == null " :src="events.data.events[1].logo.url" alt="Avatar" style="width:100%">
-                    <div class="container">
-                      <h4><b>{{event.name.text}}</b></h4>
-                      <p>Date: {{event.start.utc}}</p>
-                      <p>Timezone: {{event.start.timezone}}</p>
-                      <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button>
-                    </div>
-                  </div> -->
               
-              <!-- <div v-if="event.logo != null" class="card" v-bind:style="{ 'background-image': 'url(' + event.logo.url + ')' }">
-                <div class="container">
-                  <h3>{{event.name.text}} </h3> -->
-                  
-                    <!-- <p v-if="event.logo != null">{{event.logo.url}}</p> -->
-                     <!-- <a :href="event.url">View Event</a> -->
-                     <!-- Noscript content for added SEO -->
-<!-- <noscript><a href="https://www.eventbrite.co.uk/e/tedbree-ig-live-tickets-274103560127" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript> -->
-<!-- You can customize this button any way you like -->
-                         <!-- <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+event.id" type="button">Buy Tickets</button>
-                   </div>
-                  </div> -->
-                <!-- </li> -->
-
-            <!-- </ul> -->
-     
-  <!-- <div class="column">    <div class="card" >
-      <div class="container">
-        <h3 >{{events.data.events[eventlength-1].name.text}}
-          {{events.data.events[eventlength-1].logo}}
-        </h3>
-          <button v-on:click="handleCheck(events.data.events[eventlength-1].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-1].id" type="button">Get Tickets</button>
-      </div>
-    </div> </div>
-  <div class="column">    
-    <div class="card">
-      <div class="container">
-        <h3>{{events.data.events[eventlength-2].name.text}}</h3>
-          <button v-on:click="handleCheck(events.data.events[eventlength-2].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-2].id" type="button">Get Tickets</button>
-      </div>
-    </div> </div>
-  <div class="column">    <div class="card">
-      <div class="container">
-        <h3>{{events.data.events[eventlength-3].name.text}}</h3>
-          <button v-on:click="handleCheck(events.data.events[eventlength-3].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-3].id" type="button">Get Tickets</button>
-      </div>
-    </div> </div> -->
 
     <div class="column"> 
     <div class="card">
@@ -95,36 +43,15 @@
       <div class="container">
 
         <h4><b>{{events.data.events[eventlength-3].name.text}}</b></h4>
-      <!-- <div class="date-as-calendar position-pixels float-left">
-        <span class="weekday">Wednesday</span>
-        <span class="day">24</span>
-        <span class="month">September</span>
-        <span class="year">2014</span>
-      </div> -->
+      
       <div>
         <p>{{formatDate(events.data.events[eventlength-3].start.utc)}}</p>
         <p>{{formatAMPM(events.data.events[eventlength-3].start.utc)}}({{events.data.events[eventlength-3].start.timezone}})</p>
-        <!-- <p>Timezone: {{events.data.events[eventlength-3].start.timezone}}</p> -->
       </div>
         <button v-on:click="handleCheck(events.data.events[eventlength-3].id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-3].id" type="button">Buy Tickets</button>
       </div>
     </div>
     </div>
-        <!-- <div class="column"> 
-    <div class="card">
-
-      <img v-if="events.data.events[eventlength-1].logo != null " :src="events.data.events[eventlength-1].logo != null ? events.data.events[eventlength-1].logo.url: ''" alt="Avatar" style="width:100%">
-      <img v-if="events.data.events[eventlength-1].logo == null " :src="events.data.events[1].logo.url" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>{{events.data.events[eventlength-1].name.text}}</b></h4>
-        <p>Date: {{events.data.events[eventlength-1].start.utc}}</p>
-        <p>Timezone: {{events.data.events[eventlength-1].start.timezone}}</p>
-        <button v-on:click="handleCheck(event.id)" :id="'eventbrite-widget-modal-trigger-'+events.data.events[eventlength-1].id" type="button">Buy Tickets</button>
-      </div>
-    </div>
-    </div> -->
-
-
 </div>
 </div>
 </template>
@@ -163,9 +90,6 @@ export default {
           pt:' 3R6GWLGHDXGP5GM3SN2UK5JQJFHOK4RKMOZXXTIG72NIAOZMTC',
           organizations:null,
           eventlength:null
-      //     exampleCallback : function() {
-      // console.log('Order complete!');
-      //   }
       }
   },
   methods:{
@@ -176,14 +100,6 @@ export default {
     handleCheck(x){
       var parentWindow = window.parent;
       parentWindow.postMessage(x, "*")
-      // console.log(x)
-    //     window.EBWidgets.createWidget({
-    //     widgetType: 'checkout',
-    //     eventId: x,
-    //     modal: true,
-    //     modalTriggerElementId: 'eventbrite-widget-modal-trigger-' + x,
-    //     onOrderComplete: this.exampleCallback
-    // });
     },
 
       async handleFetch(x){
